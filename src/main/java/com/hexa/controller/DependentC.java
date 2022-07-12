@@ -40,13 +40,15 @@ public class DependentC {
 	public String SaveDependent(dependent dpndt) {
 		drepo.save(dpndt);
 	
-		return "redirect:/dependent";
+		//return "redirect:/dependent";
+		return "redirect:/";
 		
 	}
 	
-	@GetMapping("/dependent")
-	public String showDependentList(Model model) {
-		List<dependent> dpndt= service.ListAllDependent();
+	@GetMapping("/dependent/{customerId}")
+	public String showDependentList(@PathVariable("customerId") Integer customerId, Model model) {
+		//List<dependent> dpndt= service.ListAllDependent();
+		List<dependent> dpndt= service.findBycustomerId(customerId);
 		model.addAttribute("dpndt",dpndt);
 		return "dependent";
 	}

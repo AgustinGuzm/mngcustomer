@@ -21,8 +21,14 @@ public class CustomerC {
 	private CustomerS service;
 	
 	@GetMapping("/customers")
-	public String showCustomerList(Model model) {
-		List<customer> lstcstmrs= service.ListAllCustomer();
+	public String showCustomerList(Model model, String keyword) {
+		List<customer> lstcstmrs; //= service.ListAllCustomer();
+		if (keyword == null){
+		lstcstmrs= service.ListAllCustomer();
+		}else {
+		lstcstmrs= service.findByKeyword(keyword);
+
+		}
 		model.addAttribute("lstcstmrs",lstcstmrs);
 		return "customers";
 	}

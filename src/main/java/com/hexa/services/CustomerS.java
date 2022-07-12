@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import com.hexa.model.customer;
@@ -42,6 +43,13 @@ public class CustomerS {
 			throw new CustomerNotFoundExecption("No customer with ID "+customerId+"was found");
 		}
 		repo.deleteById(customerId);
+	}
+	
+	//Filter customer by keyword over fisrt name and last name.
+	public List<customer> findByKeyword(@Param("keyword") String keyword){
+		
+		return repo.findByKeyword(keyword);
+		
 	}
 
 }

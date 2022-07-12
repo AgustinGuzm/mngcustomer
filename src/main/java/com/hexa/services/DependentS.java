@@ -3,6 +3,7 @@ package com.hexa.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 //import com.hexa.model.customer;
@@ -18,5 +19,7 @@ public class DependentS {
 	public List<dependent> ListAllDependent(){
 		return repo.findAll();
 	}
-
+	public List<dependent> findBycustomerId(@Param("customerId") Integer customerId){
+		return repo.findBycustomerId(customerId);
+	}
 }
