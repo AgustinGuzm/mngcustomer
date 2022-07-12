@@ -58,6 +58,7 @@ public class CustomerC {
 		} catch (CustomerNotFoundExecption e){
 			//ra.addAttribute("message", "Customer has Updated successfully");
 			ra.addAttribute("message", e.getMessage());
+			
 			return "redirect:/customers";
 		}
 	}

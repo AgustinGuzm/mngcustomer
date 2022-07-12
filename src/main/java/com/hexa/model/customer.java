@@ -31,7 +31,7 @@ public class customer {
 		private String middleName;//customer middle name
 		@Column
 		private String lastName;//customer last name
-		@Column(nullable=false, unique=true)
+		@Column(nullable=false)//, unique=true)
 		private String email;//customer email address
 		@Column
 		private String phoneNumber;//customer phone number

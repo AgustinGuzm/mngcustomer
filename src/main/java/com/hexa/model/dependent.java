@@ -31,6 +31,7 @@ public class dependent {
 	//reference at parent table 
 //	@ManyToOne //relationship many dependents to one customer
 //	private customer customers;
+	
 	@ManyToOne //(fetch = FetchType.EAGER, cascade = CascadeType.ALL) //relationship many dependents to one customer
 	@JoinColumn(name = "customerId")
 	private customer customers;
@@ -170,7 +171,7 @@ public class dependent {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((customers == null) ? 0 : customers.hashCode());
+		//result = prime * result + ((customers == null) ? 0 : customers.hashCode());
 		result = prime * result + ((dependentId == null) ? 0 : dependentId.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((enrolled == null) ? 0 : enrolled.hashCode());

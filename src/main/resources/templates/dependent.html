@@ -8,11 +8,15 @@
 	<body>
 	<div class="container-fluid text-center">
 		<div><h2>Management Dependent</h2></div>
+		
 	</div>
 	<div class="container-fluid text-right">
+		<th:block th:each="dependent1 : ${dpndt}"> 
+				<input type="hidden" th:field="*{customerId}" th:value="${dependent1.customers.customerId}"/>
+		</th:block>
 		<a style="background-color: #f8f9fa; font-size: 2rem; border-radius: 1rem; margin: 1rem; 
 	        box-shadow: 1rem 1rem 0.5rem lightblue; padding: 1rem; text-decoration:none;" 
-			th:href="@{/dependent/new}">New Dependent</a>
+			th:href="@{'/dependent/new/'+${customerId}}">New Dependent</a>
 	</div>
 	<div th:if="${message}" class="alert alert-success text-center">
 	[[${message}]]
@@ -23,8 +27,8 @@
 		<table class="table table-bordered table-striped table table-hover">
 			<thead class="thead-dark">
 			<tr>
-				<th>Customer</th>
-				<th>Dependent ID</th>
+				<!-- <th>Customer</th>
+				<th>Dependent ID</th>   -->
 				<th>First Name</th>	
 				<th>Middle Name</th>	
 				<th>Last Name</th>
@@ -36,9 +40,10 @@
 			</thead>
 			<tbody>
 				<th:block th:each="dependent : ${dpndt}"> 
+				<input type="hidden" th:field="*{customerId}" th:value="${dependent.customers.customerId}"/>
 				<tr>
-					<td>[[${dependent.customers.customerId}]]</td>
-					<td>[[${dependent.dependentId}]]</td>
+					<!--  <td>[[${dependent.customers.customerId}]]</td>
+					<td>[[${dependent.dependentId}]]</td> -->
 					<td>[[${dependent.firstName}]]</td>
 					<td>[[${dependent.middleName}]]</td>
 					<td>[[${dependent.lastName}]]</td>
@@ -48,7 +53,7 @@
 					<td>
 						<a style="background-color: #f8f9fa; font-size: 1rem; border-radius: .2rem; margin: .2rem; 
 	        				box-shadow: 0.1rem 0.1rem 0.5rem lightblue; padding: .5rem; text-decoration:none;" 
-							th:href="@{'/dependent/edit/' + ${dependent.dependentId}}">Edit</a>
+							th:href="@{'/dependent/edit/' + ${dependent.dependentId}+'/'+${dependent.customers.customerId}}">Edit</a>
 						<!--  
 						<a class="h5 mr-3" th:href="@{'/customers/delete/' + ${customer.customerId}}">Delete</a>
 						

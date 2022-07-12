@@ -18,5 +18,6 @@ public interface CustomerR extends JpaRepository<customer, Integer>{//CrudReposi
 	@Query(value="select * from customer c where c.first_name like %:keyword%  or c.last_name like %:keyword% ", nativeQuery=true)
 	List<customer> findByKeyword(@Param("keyword") String keyword);
 	
+		
 
 }
