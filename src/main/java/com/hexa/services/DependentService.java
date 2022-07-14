@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 //import com.hexa.model.customer;
 import com.hexa.model.dependent;
 //import com.hexa.repositories.CustomerR;
-import com.hexa.repositories.DependentR;
+import com.hexa.repositories.DependentRepository;
 
 @Service
-public class DependentS {
+public class DependentService {
 	
-	@Autowired private DependentR repo;
+	@Autowired private DependentRepository repo;
 	
 	public List<dependent> ListAllDependent(){
 		return repo.findAll();

@@ -26,7 +26,8 @@
 				<div class="col-sm-4 text-left" >
 					<label class="col-sm-4 col-form-label">Filter by First or Last Name:</label>
 					<input id="txtsearh" type="text" name="keyword" class="from-control"/>
-					<button type="button" class="btn btn-secondary m-2">Search</button>
+					<!--  <button type="button" class="btn btn-secondary m-2">Search</button> -->
+					
 				</div>
 				
 			</div>
@@ -34,10 +35,14 @@
 			<input id="txtsearh" type="text" name="keyword">
 			-->
 		</form>
-		<table class="table table-bordered table-striped table table-hover">
+		<table class="table table-bordered table-striped table table-hover "> 
 			<thead class="thead-dark">
 			<tr>
 				<!-- <th>Customer ID</th>  -->
+				<!--  <th><a th:href="@{'/' + ${currentPage} +'/'+ '?sort-field=firstName&sort-dir=' + ${reverseSortDir}}">First name</a></th>  
+				<th>
+					<a th:href="@{'/customers/'+ '?sort-field=firstName&sort-dir=' + ${reverseSortDir}}">First name</a>
+				</th> -->
 				<th>First Name</th>	
 				<th>Middle Name</th>	
 				<th>Last Name</th>

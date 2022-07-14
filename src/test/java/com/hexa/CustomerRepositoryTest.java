@@ -11,7 +11,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-import com.hexa.repositories.CustomerR;
+import com.hexa.repositories.CustomerRepository;
 
 import com.hexa.model.customer;
 
@@ -22,7 +22,7 @@ import com.hexa.model.customer;
 @Rollback(false)
 public class CustomerRepositoryTest {
 	
-	@Autowired CustomerR repo;
+	@Autowired CustomerRepository repo;
 	
 //	@Test
 //	public void Testaddcustomer() {

@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.hexa.model.customer;
 import com.hexa.model.dependent;
-import com.hexa.repositories.CustomerR;
-import com.hexa.repositories.DependentR;
-import com.hexa.services.DependentS;
+import com.hexa.repositories.CustomerRepository;
+import com.hexa.repositories.DependentRepository;
+import com.hexa.services.DependentService;
 
 @Controller
-public class DependentC {
+public class DependentController {
 	
 	@Autowired 
-	private DependentS service;
+	private DependentService service;
 	
 	@Autowired 
-	private DependentR drepo;
+	private DependentRepository drepo;
 	
 	@Autowired
-	private CustomerR crepo;
+	private CustomerRepository crepo;
 	
 	@GetMapping("/dependent/new/{customerId}")
 	public String AddNewDependent(@PathVariable("customerId") Integer customerId, Model model ) {

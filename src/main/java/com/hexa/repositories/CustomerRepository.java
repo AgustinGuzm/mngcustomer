@@ -12,7 +12,7 @@ import com.hexa.model.customer;
 
 
 
-public interface CustomerR extends JpaRepository<customer, Integer>{//CrudRepository<customer, Integer>{
+public interface CustomerRepository extends JpaRepository<customer, Integer>{//CrudRepository<customer, Integer>{
 	//public Integer countById(Integer customerId);
 	
 	@Query(value="select * from customer c where c.first_name like %:keyword%  or c.last_name like %:keyword% ", nativeQuery=true)

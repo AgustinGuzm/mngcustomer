@@ -6,16 +6,22 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.hexa.model.customer;
-import com.hexa.repositories.CustomerR;
+import com.hexa.repositories.CustomerRepository;
+import com.hexa.repositories.customerSorting;
 
 @Service
-public class CustomerS {
+public class CustomerService {
 	
-	@Autowired private CustomerR repo;
-	
+	@Autowired 
+	private CustomerRepository repo;
+	//private customerSorting repo;
 	public List<customer> ListAllCustomer(){
+                 
 		return repo.findAll();
 	}
 	

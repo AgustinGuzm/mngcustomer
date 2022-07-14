@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.hexa.model.dependent;
 
-public interface DependentR extends JpaRepository<dependent, Integer>{
+public interface DependentRepository extends JpaRepository<dependent, Integer>{
 	
 	@Query(value="select * from dependent d where d.customer_id =:keyword ", nativeQuery=true)
 	List<dependent> findBycustomerId(@Param("keyword") Integer customerId);
